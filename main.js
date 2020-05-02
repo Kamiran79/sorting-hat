@@ -2,55 +2,51 @@ console.log("connected!! sorting-hat");
 
 let students = [
     {
-        name: 'Bamiran01',
+        name: 'Tammy01',
         house: 'green house',
         color: 'rr',
+        imageUrl: '',
         id: 'Bamiran01',
     },
     {
-        name: 'Kamiran02',
+        name: 'Sammy02',
         house: 'green house',
         color: 'rr',
+        imageUrl: '',
         id: 'Kamiran02',
     },
     {
-        name: 'Aamiran03',
+        name: 'Amy03',
         house: 'green house',
         color: 'rr',
+        imageUrl: '',
         id: 'Aamiran03',
     },    
 ]
+
 //HarryPotter House
-//https://vignette.wikia.nocookie.net/harrypotter/images/e/ee/Gryffindor_Crest-0.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145529
-//https://vignette.wikia.nocookie.net/harrypotter/images/6/62/Download_%289%29.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145653
-//https://vignette.wikia.nocookie.net/harrypotter/images/2/28/Download_%284%29.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145945
-//https://vignette.wikia.nocookie.net/harrypotter/images/7/72/Ccd53034-c798-452a-8032-f28e06250d8f.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729150848
-//https://vignette.wikia.nocookie.net/harrypotter/images/b/b1/Gryffindor_ClearBG.png/revision/latest/zoom-crop/width/90/height/55?cb=20190222162949
-//https://vignette.wikia.nocookie.net/harrypotter/images/0/06/Hufflepuff_ClearBG.png/revision/latest/zoom-crop/width/90/height/55?cb=20161020182518
-//https://vignette.wikia.nocookie.net/harrypotter/images/4/4e/RavenclawCrest.png/revision/latest/zoom-crop/width/90/height/55?cb=20161020182442
-//https://vignette.wikia.nocookie.net/harrypotter/images/0/00/Slytherin_ClearBG.png/revision/latest/zoom-crop/width/90/height/55?cb=20161020182557
 const assignHouse = [
     {
         house: 'Gryffindor',
-        imegUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/e/ee/Gryffindor_Crest-0.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145529',
+        imageUrl: 'https://vignette.wikia.nocookie.net/harryalbuspotter/images/8/8e/0.31_Gryffindor_Crest_Transparent.png/revision/latest?cb=20181022144149',
         number: 0,
         color: 'red'
     },
     {
         house: 'Hufflepuff',
-        imegUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/6/62/Download_%289%29.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145653',
+        imageUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/0/06/Hufflepuff_ClearBG.png/revision/latest?cb=20161020182518',
         number: 1,
         color: 'yellow'
     },
     {
         house: 'Ravenclaw',
-        imegUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/2/28/Download_%284%29.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729145945',
+        imageUrl: 'https://i.pinimg.com/originals/c9/c2/fb/c9c2fbc62648340d3cbf206c4b159d17.jpg',
         number: 2,
         color: 'blue'
     },
     {
         house: 'Slytherin',
-        imegUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/7/72/Ccd53034-c798-452a-8032-f28e06250d8f.jpg/revision/latest/zoom-crop/width/90/height/55?cb=20160729150848',
+        imageUrl: 'https://i.pinimg.com/originals/35/38/05/353805a6f80434f1d227d7dc4250d1a5.jpg',
         number: 3,
         color: 'green'
     },                  
@@ -63,7 +59,7 @@ const printToDom = (selector, textToPrint) => {
 }
 
 let callMe = false;
-
+//<img src="..." class="card-img-top" alt="...">
 const buildStudentCards = (studentsCollection) => {
     let domStr ='';
     //const myCat = getEleme
@@ -75,6 +71,7 @@ const buildStudentCards = (studentsCollection) => {
             x= Math.floor(Math.random() * 4);
             studentsCollection[i].house = assignHouse[x].house;
             studentsCollection[i].color = assignHouse[x].color;
+            studentsCollection[i].imageUrl = assignHouse[x].imageUrl;
         }
                        
         console.log(studentsCollection[i].house);       
@@ -82,8 +79,9 @@ const buildStudentCards = (studentsCollection) => {
         <div class = "col-md-auto myCardsCol">
         <div class="card text-center" style = "width: 18rem;border: 1px solid black;">
         <div class="card-body">
-          <h5 class="card-title" style = "background-color: ${studentsCollection[i].color};color: white; text-shadow: 0 0 3px #333333, 0 0 5px #000000;">${studentsCollection[i].name}</h5>
-          <p class="card-text">${studentsCollection[i].house}</p>
+          <img src="${studentsCollection[i].imageUrl}" class="card-img-top" alt="${studentsCollection[i].house}">
+          <h5 class="card-title">${studentsCollection[i].name}</h5>
+          <p class="card-text houseName" style="background-color: ${studentsCollection[i].color};">${studentsCollection[i].house}</p>
           <a id = "${studentsCollection[i].name}" onClick= "deleteCard(this.id)" href="#" class="btn btn-primary">Expel</a>
         </div>
       </div>        
@@ -117,7 +115,7 @@ const filterstudentsEvent = (event) => {
     let x= 0;
     x= Math.floor(Math.random() * 4);
     if (!found) {
-        students.push({name: inp, house: assignHouse[x].house, color: assignHouse[x].color, id: inp});
+        students.push({name: inp, house: assignHouse[x].house, color: assignHouse[x].color, imageUrl: assignHouse[x].imageUrl, id: inp});
     }
     tempStudentCollection = students;
 
