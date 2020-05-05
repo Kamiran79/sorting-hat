@@ -3,17 +3,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;    
 }
 
-.selector-for-some-widget {
-    box-sizing: content-box;
-    
-}
-
-.img {
-    max-width: 50px;
-    max-height: 50px;
-
-}
-
 .houseName {
     color: white; 
     text-shadow: 0 0 3px #333333, 0 0 5px #000000;
@@ -22,10 +11,16 @@ body {
     border-radius: 3px;
 }
 
+.vArmy {
+    background-color: black;
+    color: red;
+}
+
 .lblh3 {
     margin-left: 120px;    
     font-weight: bold;
 }
+
 
 .secondForm {
     padding: 20px 20px 20px 40px;
@@ -56,21 +51,11 @@ body {
     margin: 10px;
 }
 
-.mySingleCard {
-    display: flex;
-    flex-flow: row wrap;
-    
-}
 
 @media screen and (max-width: 790px) {
     .mobile {
         display: flex;
         flex-direction: column;
-    }
-
-    .myCards {
-        flex-direction: column;
-        flex-flow: column;
     }
 
     .btnSort {
