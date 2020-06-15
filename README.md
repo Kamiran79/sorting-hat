@@ -13,4 +13,4 @@ This exercise about adding new student to the class that will be four group of c
 1. In your browser, go where it's being served (default is localhost:8081)
 
 ## Screenshots
-![sortingHat](./screenshots/Screen Shot 2020-06-14 at 10.47.12 PM.png)
+![sortingHat](https://github.com/Kamiran79/sorting-hat/blob/master/screenshots/Screen%20Shot%202020-06-14%20at%2010.47.12%20PM.png)
